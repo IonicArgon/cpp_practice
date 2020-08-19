@@ -1,0 +1,28 @@
+this is just a quick note on logical operators || and &&
+short circuit evaluation is used on both on them, essentially
+    - in a logical AND, if the first operand looks like its gonna
+      be false, then the second operand is never evaluated
+    - likewise, in a logical OR, if the first operand evaulates to true
+      the entire condition evaluates to true and the second operand
+      is never evaluated
+    - it is used for optimization
+
+unfortunately, this means something like
+    (x == 1 && ++y == 2)
+++y will never be evaluated so long as x != 1
+obviously this makes sense since if x != 1 then the entire operation is false
+but it still has unintended side effects
+
+&& has a higher operator precedence than ||
+  parenthesize each operation to avoid the compiler doing voodoo
+  magic to your operators
+
+De Morgan's law
+in a nutshell:
+  (!(a && b)) == (!a || !b)
+  (!(a || b)) == (!a && !b)
+  
+logical XOR can be substituted using a bunch of != operators like so
+  a != b != c != d != ...
+
+  
