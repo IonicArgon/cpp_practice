@@ -9,20 +9,23 @@ CHAPT1SRC = src/1-basics/
 CHAPT2SRC = src/2-funcs_and_files/
 CHAPT5SRC = src/5-operators/
 CHAPTOSRC = src/O-bit_manipulation/
+CHAPT6SRC = src/6-object_scope/
 
 # bin locations
 CHAPT1BIN = bin/1-basics/
 CHAPT2BIN = bin/2-funcs_and_files/
 CHAPT5BIN = bin/5-operators/
 CHAPTOBIN = bin/O-bit_manipulation/
+CHAPT6BIN = bin/6-object_scope/
 
 
-all: chapter1 chapter2 chapter5 chapterO
+all: chapter1 chapter2 chapter5 chapterO chapter6
 
 chapter1 : vari-init
 chapter2 : fwrd-declr fwrd-declr-2 header-files
 chapter5 : float-comp
 chapterO : flag-manip bitops bitmasks
+chapter6 : namespaces
 
 
 # chapter one
@@ -67,6 +70,16 @@ bitops : ${CHAPTOSRC}bitop.cpp
 bitmasks : ${CHAPTOSRC}bitmasks.cpp
 	${CC} ${CFLAGS} ${CHAPTOSRC}bitmasks.cpp \
 	-o ${CHAPTOBIN}bitmasks
+
+
+# chapter 6
+namespaces : ${CHAPT6SRC}namespaces/namespaces.cpp \
+			${CHAPT6SRC}namespaces/complex-math.cpp \
+			${CHAPT6SRC}namespaces/simple-math.cpp
+	${CC} ${CFLAGS} ${CHAPT6SRC}namespaces/namespaces.cpp \
+					${CHAPT6SRC}namespaces/complex-math.cpp \
+					${CHAPT6SRC}namespaces/simple-math.cpp \
+	-Iinclude -o ${CHAPT6BIN}namespaces
 
 
 # misc recipes
