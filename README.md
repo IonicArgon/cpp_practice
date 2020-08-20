@@ -1,5 +1,5 @@
 # c++ practice  
-![WTFPL License](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-4.png)
+[![WTFPL License](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-4.png)](http://www.wtfpl.net/about/)
 
 
 this is practice for c++ since im still kinda bad at it fam  
