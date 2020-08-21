@@ -10,16 +10,18 @@ CHAPT2SRC = ./src/2-funcs_and_files/
 CHAPT5SRC = ./src/5-operators/
 CHAPTOSRC = ./src/O-bit_manipulation/
 CHAPT6SRC = ./src/6-object_scope/
+CHAPTSSRC = ./src/S-compound_types/
 
-.PHONY : clean all chapter1 chapter2 chapter5 chapterO chapter6
+.PHONY : clean all chapter1 chapter2 chapter5 chapterO chapter6 chapterS
 
-all : chapter1 chapter2 chapter5 chapterO chapter6
+all : chapter1 chapter2 chapter5 chapterO chapter6 chapterS
 
 chapter1 : ./bin/var-init
 chapter2 : ./bin/fwrd-declr ./bin/fwrd-declr-2 ./bin/headers
 chapter5 : ./bin/float-comp
 chapterO : ./bin/bitset ./bin/bitop ./bin/bitmasks
 chapter6 : ./bin/namespaces ./bin/global-vari ./bin/typedefs ./bin/auto
+chapterS : ./bin/enums
 
 # chapter 1
 ./bin/var-init : ${CHAPT1SRC}variable-initialization.cpp
@@ -100,6 +102,12 @@ chapter6 : ./bin/namespaces ./bin/global-vari ./bin/typedefs ./bin/auto
 	-o $@
 	@echo "Built: $@"
 
+
+# chapter S
+./bin/enums : ${CHAPTSSRC}enums.cpp
+	@${CC} ${CFLAGS} ${CHAPTSSRC}enums.cpp \
+	-o $@
+	@echo "Built: $@"
 
 # clean
 clean :
