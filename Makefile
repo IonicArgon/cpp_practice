@@ -2,7 +2,7 @@
 CC = g++
 
 # compiler flags
-CFLAGS = -std=c++20 -Iinclude
+CFLAGS = -std=c++20 -Iinclude -Wall
 
 # source file locations
 CHAPT1SRC = ./src/1-basics/

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 // there's a ""magic"" keyword in C++ called "auto"
 // it can be for a number of uses, but the key use is automatic
@@ -17,15 +18,11 @@ auto some_function()
 // this function doesn't return a <string> string, but a const char[]
 // which is the string literal.
 
-auto another_function(auto x, auto y)
-{
-    return x + y;
-}
 // also, prior C++20, you can't use auto in function parameters
 // the use of auto as function parameters is similar to function templates
 // which allows you to create a generic function that can be used
-// on multiple types
-
+// on multiple types, but i cant seem to work it out rn, ill prolly
+// figure it out later.
 // since most of my stuff is gonna be in C++17, ill probably be using
 // function templates instead (ARM GCC is not up to date with GCCx86 just yet)
 
