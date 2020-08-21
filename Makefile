@@ -21,7 +21,7 @@ chapter2 : ./bin/fwrd-declr ./bin/fwrd-declr-2 ./bin/headers
 chapter5 : ./bin/float-comp
 chapterO : ./bin/bitset ./bin/bitop ./bin/bitmasks
 chapter6 : ./bin/namespaces ./bin/global-vari ./bin/typedefs ./bin/auto
-chapterS : ./bin/enums
+chapterS : ./bin/enums ./bin/structs
 
 # chapter 1
 ./bin/var-init : ${CHAPT1SRC}variable-initialization.cpp
@@ -106,6 +106,11 @@ chapterS : ./bin/enums
 # chapter S
 ./bin/enums : ${CHAPTSSRC}enums.cpp
 	@${CC} ${CFLAGS} ${CHAPTSSRC}enums.cpp \
+	-o $@
+	@echo "Built: $@"
+
+./bin/structs : ${CHAPTSSRC}structs.cpp
+	@${CC} ${CFLAGS} ${CHAPTSSRC}structs.cpp \
 	-o $@
 	@echo "Built: $@"
 
