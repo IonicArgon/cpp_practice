@@ -25,7 +25,7 @@ chapter1 : vari-init
 chapter2 : fwrd-declr fwrd-declr-2 header-files
 chapter5 : float-comp
 chapterO : flag-manip bitops bitmasks
-chapter6 : namespaces global-constants
+chapter6 : namespaces global-constants typedefs
 
 
 # chapter one
@@ -87,20 +87,14 @@ global-constants: ${CHAPT6SRC}global-variables/global-vari.cpp \
 					${CHAPT6SRC}global-variables/constants.cpp \
 	-Iinclude -o ${CHAPT6BIN}global-constants
 
+typedefs : ${CHAPT6SRC}typedefs-alias.cpp
+	${CC} ${CFLAGS} ${CHAPT6SRC}typedefs-alias.cpp \
+	-o ${CHAPT6BIN}typedefs
 
 # misc recipes
 .PHONY : clean
 clean:
-	rm -r ${CHAPT1BIN}${chapter1}
-	rm -r ${CHAPT2BIN}${chapter2}
-	rm -r ${CHAPT5BIN}${chapter5}
-	rm -r ${CHAPTOBIN}${chapterO}
-	rm -r ${CHAPT6BIN}${chapter6}
-	mkdir ${CHAPT1BIN}
-	mkdir ${CHAPT2BIN}
-	mkdir ${CHAPT5BIN}
-	mkdir ${CHAPTOBIN}
-	mkdir ${CHAPT6BIN}
+	rm -f ${all} *.exe
 	@echo "Cleanup complete."
 
 
