@@ -5,8 +5,6 @@
 // otherwise, refrain from doing so you can get weird unexpected
 // behavior doe
 
-// im still gonna use bitset here though
-
 int main()
 {
     // note, use of constexpr instead of const
