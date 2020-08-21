@@ -2,7 +2,7 @@
 CC = g++
 
 # compiler flags
-CFLAGS = -Wall
+CFLAGS = -Wall -std=c++20
 
 # source file locations
 CHAPT1SRC = src/1-basics/
@@ -25,7 +25,7 @@ chapter1 : vari-init
 chapter2 : fwrd-declr fwrd-declr-2 header-files
 chapter5 : float-comp
 chapterO : flag-manip bitops bitmasks
-chapter6 : namespaces
+chapter6 : namespaces global-constants
 
 
 # chapter one
@@ -40,15 +40,15 @@ fwrd-declr : ${CHAPT2SRC}forward-declarations.cpp
 	-o ${CHAPT2BIN}fwrd-declr
 
 fwrd-declr-2 : ${CHAPT2SRC}fwrd-declr-2/fwrd-declr-2.cpp \
-				${CHAPT2SRC}fwrd-declr-2/subtract.cpp
+			   ${CHAPT2SRC}fwrd-declr-2/subtract.cpp
 	${CC} ${CFLAGS} ${CHAPT2SRC}fwrd-declr-2/fwrd-declr-2.cpp \
-	${CHAPT2SRC}fwrd-declr-2/subtract.cpp \
+					${CHAPT2SRC}fwrd-declr-2/subtract.cpp \
 	-o ${CHAPT2BIN}fwrd-declr-2
 
 header-files : ${CHAPT2SRC}header-files/header-files.cpp \
-				${CHAPT2SRC}header-files/multiply.cpp
+			   ${CHAPT2SRC}header-files/multiply.cpp
 	${CC} ${CFLAGS} ${CHAPT2SRC}header-files/header-files.cpp \
-	${CHAPT2SRC}header-files/multiply.cpp -Iinclude \
+					${CHAPT2SRC}header-files/multiply.cpp -Iinclude \
 	-o ${CHAPT2BIN}header-files
 
 
@@ -74,12 +74,18 @@ bitmasks : ${CHAPTOSRC}bitmasks.cpp
 
 # chapter 6
 namespaces : ${CHAPT6SRC}namespaces/namespaces.cpp \
-			${CHAPT6SRC}namespaces/complex-math.cpp \
-			${CHAPT6SRC}namespaces/simple-math.cpp
+			 ${CHAPT6SRC}namespaces/complex-math.cpp \
+			 ${CHAPT6SRC}namespaces/simple-math.cpp
 	${CC} ${CFLAGS} ${CHAPT6SRC}namespaces/namespaces.cpp \
 					${CHAPT6SRC}namespaces/complex-math.cpp \
 					${CHAPT6SRC}namespaces/simple-math.cpp \
 	-Iinclude -o ${CHAPT6BIN}namespaces
+
+global-constants: ${CHAPT6SRC}global-variables/global-vari.cpp \
+				  ${CHAPT6SRC}global-variables/constants.cpp
+	${CC} ${CFLAGS} ${CHAPT6SRC}global-variables/global-vari.cpp \
+					${CHAPT6SRC}global-variables/constants.cpp \
+	-Iinclude -o ${CHAPT6BIN}global-constants
 
 
 # misc recipes
@@ -88,9 +94,13 @@ clean:
 	rm -r ${CHAPT1BIN}${chapter1}
 	rm -r ${CHAPT2BIN}${chapter2}
 	rm -r ${CHAPT5BIN}${chapter5}
+	rm -r ${CHAPTOBIN}${chapterO}
+	rm -r ${CHAPT6BIN}${chapter6}
 	mkdir ${CHAPT1BIN}
 	mkdir ${CHAPT2BIN}
 	mkdir ${CHAPT5BIN}
+	mkdir ${CHAPTOBIN}
+	mkdir ${CHAPT6BIN}
 	@echo "Cleanup complete."
 
 
