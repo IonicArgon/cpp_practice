@@ -17,7 +17,7 @@ int main ()
     char some_other_string[]{"gang gang"};
 
     // brace initialization good because it prevents you from doing stuff like
-    // int another_value{3.0f};
+    //int another_value{3.5f};
     // normally, direct and copy initialization will drop the fractional component, which is yikes
     // brace initialization will throw an error instead
 

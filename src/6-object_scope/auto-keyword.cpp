@@ -33,6 +33,7 @@ auto main() -> int
     std::cout << some_function() << '\n';
     return 0;
 }
+
 // this is known as trailing return type syntax
 // it can be technically used to organize the code style but like why tho
 // this is also used in lambda functions but idk that yet
