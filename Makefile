@@ -27,7 +27,7 @@ chapterO : ./bin/bitset ./bin/bitop ./bin/bitmasks
 chapter6 : ./bin/namespaces ./bin/global-vari ./bin/typedefs ./bin/auto
 chapterS : ./bin/enums ./bin/structs
 chapterL : ./bin/tidbits
-chapterP : ./bin/pointers
+chapterP : ./bin/pointers ./bin/ptr-arr
 
 # chapter 1
 ./bin/var-init : ${CHAPT1SRC}variable-initialization.cpp
@@ -130,6 +130,11 @@ chapterP : ./bin/pointers
 # chapter P
 ./bin/pointers : ${CHAPTPSRC}pointers.cpp
 	@${CC} ${CFLAGS} ${CHAPTPSRC}pointers.cpp \
+	-o $@
+	@echo "Built: $@"
+
+./bin/ptr-arr : ${CHAPTPSRC}ptr-arr.cpp
+	@${CC} ${CFLAGS} ${CHAPTPSRC}ptr-arr.cpp \
 	-o $@
 	@echo "Built: $@"
 
