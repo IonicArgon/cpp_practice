@@ -12,12 +12,13 @@ CHAPTOSRC = ./src/O-bit_manipulation/
 CHAPT6SRC = ./src/6-object_scope/
 CHAPTSSRC = ./src/S-compound_types/
 CHAPTLSRC = ./src/L-control_flow/
+CHAPTPSRC = ./src/P-pointers_memory/
 
 .PHONY : clean all chapter1 chapter2 chapter5 chapterO chapter6 chapterS \
-		 chapterL
+		 chapterL chapterP
 
 all : chapter1 chapter2 chapter5 chapterO chapter6 chapterS \
-	  chapterL
+	  chapterL chapterP
 
 chapter1 : ./bin/var-init
 chapter2 : ./bin/fwrd-declr ./bin/fwrd-declr-2 ./bin/headers
@@ -26,6 +27,7 @@ chapterO : ./bin/bitset ./bin/bitop ./bin/bitmasks
 chapter6 : ./bin/namespaces ./bin/global-vari ./bin/typedefs ./bin/auto
 chapterS : ./bin/enums ./bin/structs
 chapterL : ./bin/tidbits
+chapterP : ./bin/pointers
 
 # chapter 1
 ./bin/var-init : ${CHAPT1SRC}variable-initialization.cpp
@@ -121,6 +123,13 @@ chapterL : ./bin/tidbits
 # chapter L
 ./bin/tidbits : ${CHAPTLSRC}tidbits.cpp
 	@${CC} ${CFLAGS} ${CHAPTLSRC}tidbits.cpp \
+	-o $@
+	@echo "Built: $@"
+
+
+# chapter P
+./bin/pointers : ${CHAPTPSRC}pointers.cpp
+	@${CC} ${CFLAGS} ${CHAPTPSRC}pointers.cpp \
 	-o $@
 	@echo "Built: $@"
 
