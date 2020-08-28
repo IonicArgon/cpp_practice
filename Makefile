@@ -1,8 +1,8 @@
 # compiler goes here
-CC = g++
+CC = g++-10
 
 # compiler flags
-CFLAGS = -std=c++20 -Iinclude -Wall
+CFLAGS = -std=c++20 -Iinclude
 
 # source file locations
 CHAPT1SRC = ./src/1-basics/
@@ -146,5 +146,5 @@ chapterP : ./bin/pointers ./bin/ptr-arr ./bin/dyn-malloc
 
 # clean
 clean :
-	@rm -f ./bin/*.exe
+	@rm -f ./bin/*
 	@echo "Cleanup complete."

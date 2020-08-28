@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Build output directories
+bin/
+
+# Makefile
+Makefile
