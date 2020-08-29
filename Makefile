@@ -28,7 +28,7 @@ chapter6 : ./bin/namespaces ./bin/global-vari ./bin/typedefs ./bin/auto
 chapterS : ./bin/enums ./bin/structs
 chapterL : ./bin/tidbits
 chapterP : ./bin/pointers ./bin/ptr-arr ./bin/dyn-malloc ./bin/reference \
-		   ./bin/const_ref
+		   ./bin/const_ref ./bin/mem_sel
 
 # chapter 1
 ./bin/var-init : ${CHAPT1SRC}variable-initialization.cpp
@@ -151,6 +151,11 @@ chapterP : ./bin/pointers ./bin/ptr-arr ./bin/dyn-malloc ./bin/reference \
 
 ./bin/const_ref : ${CHAPTPSRC}const_ref.cpp
 	@${CC} ${CFLAGS} ${CHAPTPSRC}const_ref.cpp \
+	-o $@
+	@echo "Built: $@"
+
+./bin/mem_sel : ${CHAPTPSRC}mem_sel.cpp
+	@${CC} ${CFLAGS} ${CHAPTPSRC}mem_sel.cpp \
 	-o $@
 	@echo "Built: $@"
 
