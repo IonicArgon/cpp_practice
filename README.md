@@ -20,8 +20,9 @@ then just run:
 why do you even care anyways this is a private repository  
 
 ## Building
-just use the absolutely **horrendous** Makefile that's included in this repo.  
-use `make` in the directory to build.  
+just realized that the Makefile isn't gonna be cross-platform compatible.  
+it's not like it matters this is a private repo lol.  
+maybe i'll learn how to use cmake later so i can make it cross-platform compatible and learn something too.  
 
 ## License
 this repository is licensed under the [WTFPL License](http://www.wtfpl.net/about/).  
