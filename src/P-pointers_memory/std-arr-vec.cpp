@@ -48,6 +48,30 @@ auto example(bool early_exit) -> void
     }   std::cout << '\n';
 }
 
+// built in iterators
+auto iter_example() -> void
+{
+    std::array<int, 10> int_arr { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+    for (auto i = int_arr.begin(); i != int_arr.end(); ++i)
+    {
+        *i *= 2;
+    }
+
+    // that is pretty much the same as
+    for (auto &i : int_arr)
+    {
+        i *= 2;
+    }
+
+    // we're just using iterators to do it.
+    // iterators are used to "iterate" through the elements
+    // .begin() tells you the beginning, .end() tells you the end, 
+    // operator++ to shift up and operator-- to shift down, and 
+    // operator* to dereference the iterator and use the value there.
+    // for-each loops work the same way, they're just doing it all behind the scenes.
+}
+
 auto main() -> int
 {
     // arrays
@@ -111,6 +135,7 @@ auto main() -> int
         std::cout << i << ' ';
     }   std::cout << '\n';
     
+    iter_example();
 
     // last note: boolean vectors will store 8 booleans in a byte, similar to using bitmasks, which is nice.
     return 0;
