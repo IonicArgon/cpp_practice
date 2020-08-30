@@ -10,7 +10,7 @@ void *bar { &foo };
 
 // this is for later
 int int_arr[] { 1, 2, 3, 4, 5 };
-std::vector<char> char_vec { 'a', 'b', 'c', 'd', 'e' };
+std::vector char_vec { 'a', 'b', 'c', 'd', 'e' };
 
 auto main() -> int
 {
