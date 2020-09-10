@@ -63,6 +63,10 @@
         "string_view": "cpp",
         "ranges": "cpp",
         "sstream": "cpp",
-        "cinttypes": "cpp"
+        "cinttypes": "cpp",
+        "chrono": "cpp",
+        "list": "cpp",
+        "ratio": "cpp",
+        "fstream": "cpp"
     }
 }
